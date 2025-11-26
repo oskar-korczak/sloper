@@ -1,27 +1,35 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface VideoPlayerProps {
   video: Blob;
 }
 
 export function VideoPlayer({ video }: VideoPlayerProps) {
-  const videoUrl = useMemo(() => URL.createObjectURL(video), [video]);
-  const prevUrlRef = useRef<string | null>(null);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const urlRef = useRef<string | null>(null);
 
   useEffect(() => {
-    // Revoke previous URL when video changes
-    if (prevUrlRef.current && prevUrlRef.current !== videoUrl) {
-      URL.revokeObjectURL(prevUrlRef.current);
-    }
-    prevUrlRef.current = videoUrl;
+    // Create new blob URL
+    const url = URL.createObjectURL(video);
+    urlRef.current = url;
+    setVideoUrl(url);
 
-    // Cleanup on unmount
+    // Cleanup on unmount or when video changes
     return () => {
-      if (videoUrl) {
-        URL.revokeObjectURL(videoUrl);
+      if (urlRef.current) {
+        URL.revokeObjectURL(urlRef.current);
+        urlRef.current = null;
       }
     };
-  }, [videoUrl]);
+  }, [video]);
+
+  if (!videoUrl) {
+    return (
+      <div className="w-full rounded-lg overflow-hidden bg-black shadow-lg flex items-center justify-center h-64">
+        <p className="text-white">Loading video...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full rounded-lg overflow-hidden bg-black shadow-lg">
