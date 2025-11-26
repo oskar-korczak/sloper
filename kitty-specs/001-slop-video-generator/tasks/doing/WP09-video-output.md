@@ -9,9 +9,9 @@ subtasks:
   - "T060"
 title: "Video Assembly Client & Output UI - User Story 6"
 phase: "Phase 1 - Core Features"
-lane: "planned"
+lane: "doing"
 assignee: ""
-agent: ""
+agent: "system"
 shell_pid: ""
 review_status: ""
 reviewed_by: ""
@@ -421,3 +421,4 @@ history:
 ## Activity Log
 
 - 2025-11-26T00:00:00Z – system – lane=planned – Prompt created.
+- 2025-11-26T14:09:35Z – system – shell_pid= – lane=doing – Moved to doing
