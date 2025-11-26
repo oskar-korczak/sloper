@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useMemo, ReactNode } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
+import type { ReactNode } from 'react';
 import type { WorkflowState, WorkflowStage } from '../types';
 
 const defaultWorkflowState: WorkflowState = {
