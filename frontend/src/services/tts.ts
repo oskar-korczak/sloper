@@ -1,5 +1,5 @@
 // TTS Service - ElevenLabs Text-to-Speech
-// Full implementation in WP06, stub for WP05 compilation
+// Implements FR-019 (audio generation), FR-020 (context), FR-021 (concurrency)
 
 import { ConcurrencyLimiter } from './images';
 
@@ -121,8 +121,13 @@ export async function generateTtsAudio(
     };
   }
 
-  // Calculate duration from audio or timing
-  const duration = timing?.totalDuration || 0;
+  // Calculate duration from timing or fallback to audio element
+  let duration = timing?.totalDuration || 0;
+
+  // If no timing data, get duration from audio element
+  if (duration === 0) {
+    duration = await getAudioDuration(blob);
+  }
 
   return {
     data: blob,
@@ -132,5 +137,36 @@ export async function generateTtsAudio(
   };
 }
 
-// TTS concurrency limiter (default 4 concurrent requests per spec)
+/**
+ * Get audio duration using HTML Audio element
+ * Fallback when timing data is not available from API
+ */
+export function getAudioDuration(audioBlob: Blob): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const audio = new Audio();
+    const url = URL.createObjectURL(audioBlob);
+
+    audio.onloadedmetadata = () => {
+      URL.revokeObjectURL(url);
+      resolve(audio.duration);
+    };
+
+    audio.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('Failed to load audio for duration calculation'));
+    };
+
+    audio.src = url;
+  });
+}
+
+/**
+ * Create a TTS concurrency limiter with configurable max concurrent requests
+ * Default: 4 concurrent requests per FR-021
+ */
+export function createTTSLimiter(maxConcurrent: number = 4) {
+  return new ConcurrencyLimiter<TtsResult>(maxConcurrent);
+}
+
+// Default TTS concurrency limiter (4 concurrent requests per spec)
 export const ttsLimiter = new ConcurrencyLimiter<TtsResult>(4);
