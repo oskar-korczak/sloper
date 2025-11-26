@@ -2,6 +2,7 @@ import { ConfigProvider } from './contexts/ConfigContext';
 import { SceneProvider } from './contexts/SceneContext';
 import { AssetProvider } from './contexts/AssetContext';
 import { WorkflowProvider } from './contexts/WorkflowContext';
+import { ConfigScreen } from './components/config';
 
 function App() {
   return (
@@ -9,15 +10,9 @@ function App() {
       <SceneProvider>
         <AssetProvider>
           <WorkflowProvider>
-            <main className="min-h-screen bg-gray-50">
-              <div className="max-w-4xl mx-auto p-4">
-                <h1 className="text-2xl font-bold text-gray-900 mb-4">
-                  Slop Video Generator
-                </h1>
-                <p className="text-gray-600">
-                  Video generation workflow coming soon...
-                </p>
-              </div>
+            <main className="min-h-screen bg-gray-100">
+              <ConfigScreen />
+              {/* Other stage screens will be added here */}
             </main>
           </WorkflowProvider>
         </AssetProvider>
