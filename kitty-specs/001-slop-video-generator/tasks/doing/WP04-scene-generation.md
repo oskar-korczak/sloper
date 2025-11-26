@@ -13,10 +13,10 @@ subtasks:
   - "T029"
 title: "LLM Streaming Service & Scene Generation UI - User Story 1"
 phase: "Phase 1 - Core Features"
-lane: "planned"
+lane: "doing"
 assignee: ""
-agent: ""
-shell_pid: ""
+agent: "claude"
+shell_pid: "24353"
 review_status: ""
 reviewed_by: ""
 history:
@@ -577,3 +577,4 @@ Output as a JSON array: [{"script": "...", "image_description": "..."}, ...]`;
 ## Activity Log
 
 - 2025-11-26T00:00:00Z – system – lane=planned – Prompt created.
+- 2025-11-26T13:33:56Z – claude – shell_pid=24353 – lane=doing – Started implementation of LLM Streaming Service & Scene Generation UI
