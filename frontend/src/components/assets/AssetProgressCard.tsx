@@ -1,4 +1,4 @@
-import { Scene, Asset, AssetStatus } from '../../types';
+import type { Scene, Asset, AssetStatus } from '../../types';
 
 interface AssetProgressCardProps {
   scene: Scene;
