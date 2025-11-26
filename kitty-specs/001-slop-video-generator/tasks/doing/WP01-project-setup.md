@@ -10,10 +10,10 @@ subtasks:
   - "T007"
 title: "Project Setup & Scaffolding"
 phase: "Phase 0 - Setup"
-lane: "planned"
+lane: "doing"
 assignee: ""
-agent: ""
-shell_pid: ""
+agent: "claude"
+shell_pid: "90448"
 review_status: ""
 reviewed_by: ""
 history:
@@ -325,3 +325,4 @@ history:
 ## Activity Log
 
 - 2025-11-26T00:00:00Z – system – lane=planned – Prompt created.
+- 2025-11-26T12:55:49Z – claude – shell_pid=90448 – lane=doing – Started implementation
