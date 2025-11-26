@@ -9,7 +9,7 @@ subtasks:
 title: "TTS Service with Context"
 phase: "Phase 1 - Core Features"
 lane: "done"
-assignee: ""
+assignee: "claude"
 agent: "claude-reviewer"
 shell_pid: "$$"
 review_status: "approved without changes"

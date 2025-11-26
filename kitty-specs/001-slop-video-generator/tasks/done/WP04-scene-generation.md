@@ -14,7 +14,7 @@ subtasks:
 title: "LLM Streaming Service & Scene Generation UI - User Story 1"
 phase: "Phase 1 - Core Features"
 lane: "done"
-assignee: ""
+assignee: "claude"
 agent: "claude-reviewer"
 shell_pid: "$$"
 review_status: "approved without changes"

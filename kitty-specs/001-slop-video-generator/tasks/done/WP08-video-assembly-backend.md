@@ -12,7 +12,7 @@ subtasks:
 title: "Backend Video Assembly"
 phase: "Phase 1 - Core Features"
 lane: "done"
-assignee: ""
+assignee: "claude"
 agent: "claude-reviewer"
 shell_pid: "$$"
 review_status: "approved without changes"

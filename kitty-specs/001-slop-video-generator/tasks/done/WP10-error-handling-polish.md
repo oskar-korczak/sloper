@@ -12,7 +12,7 @@ subtasks:
 title: "Error Handling & Polish - User Story 5"
 phase: "Phase 2 - Polish"
 lane: "done"
-assignee: ""
+assignee: "claude"
 agent: "claude"
 shell_pid: "96350"
 review_status: "approved without changes"

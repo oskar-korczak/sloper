@@ -10,7 +10,7 @@ subtasks:
 title: "Video Assembly Client & Output UI - User Story 6"
 phase: "Phase 1 - Core Features"
 lane: "done"
-assignee: ""
+assignee: "claude"
 agent: "claude-reviewer"
 shell_pid: "$$"
 review_status: "approved without changes"
