@@ -19,26 +19,99 @@ const BRIGHTNESS_BOOST = 1.5;
 const CONTRAST_BOOST = 1.2;
 
 /**
+ * Convert a Blob to base64 string (without data URL prefix)
+ */
+function blobToBase64(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const result = reader.result as string;
+      // Remove data URL prefix (e.g., "data:image/png;base64,")
+      const base64 = result.split(',')[1];
+      resolve(base64);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+/**
  * Generate an image using OpenAI's image generation API
  */
+/**
+ * Map a requested size to the closest supported DALL-E 3 size
+ * DALL-E 3 only supports: 1024x1024, 1024x1792, 1792x1024
+ */
+function normalizeImageSize(requestedSize: string, model: string): string {
+  // DALL-E 3 supported sizes
+  const dalle3Sizes = ['1024x1024', '1024x1792', '1792x1024'];
+  // DALL-E 2 supported sizes
+  const dalle2Sizes = ['256x256', '512x512', '1024x1024'];
+
+  const supportedSizes = model === 'dall-e-3' ? dalle3Sizes : dalle2Sizes;
+
+  // If the requested size is already supported, use it
+  if (supportedSizes.includes(requestedSize)) {
+    return requestedSize;
+  }
+
+  // Parse requested dimensions
+  const [reqWidth, reqHeight] = requestedSize.split('x').map(Number);
+  const aspectRatio = reqWidth / reqHeight;
+
+  // For DALL-E 3, pick the closest aspect ratio
+  if (model === 'dall-e-3') {
+    if (aspectRatio < 0.75) {
+      // Very tall/portrait -> use 1024x1792
+      return '1024x1792';
+    } else if (aspectRatio > 1.33) {
+      // Very wide/landscape -> use 1792x1024
+      return '1792x1024';
+    } else {
+      // Close to square -> use 1024x1024
+      return '1024x1024';
+    }
+  }
+
+  // Default fallback
+  return '1024x1024';
+}
+
 export async function generateImage(
   apiKey: string,
   options: ImageGenerationOptions
 ): Promise<ImageResult> {
+  // Normalize model name - gpt-image-1 should be dall-e-3
+  const model = options.model === 'gpt-image-1' ? 'dall-e-3' : options.model;
+
+  // Normalize size to supported values
+  const size = normalizeImageSize(options.size, model);
+
+  // Build request body - dall-e-3 supports b64_json, dall-e-2 does too
+  const requestBody: Record<string, unknown> = {
+    model,
+    prompt: options.prompt,
+    n: 1,
+    size,
+  };
+
+  // Only add quality for dall-e-3
+  if (model === 'dall-e-3') {
+    requestBody.quality = options.quality === 'high' ? 'hd' : 'standard';
+  }
+
+  // Add response_format for supported models
+  if (model === 'dall-e-3' || model === 'dall-e-2') {
+    requestBody.response_format = 'b64_json';
+  }
+
   const response = await fetch('https://api.openai.com/v1/images/generations', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      model: options.model,
-      prompt: options.prompt,
-      n: 1,
-      size: options.size,
-      quality: options.quality === 'high' ? 'hd' : 'standard',
-      response_format: 'b64_json',
-    }),
+    body: JSON.stringify(requestBody),
   });
 
   if (!response.ok) {
@@ -47,7 +120,19 @@ export async function generateImage(
   }
 
   const result = await response.json();
-  const base64 = result.data[0].b64_json;
+
+  // Handle either b64_json or url response
+  let base64: string;
+  if (result.data[0].b64_json) {
+    base64 = result.data[0].b64_json;
+  } else if (result.data[0].url) {
+    // Fetch the image from URL and convert to base64
+    const imageResponse = await fetch(result.data[0].url);
+    const imageBlob = await imageResponse.blob();
+    base64 = await blobToBase64(imageBlob);
+  } else {
+    throw new Error('No image data in response');
+  }
 
   // Convert base64 to Blob
   const binaryString = atob(base64);
