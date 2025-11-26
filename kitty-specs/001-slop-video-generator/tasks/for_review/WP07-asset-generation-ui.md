@@ -9,7 +9,7 @@ subtasks:
   - "T046"
 title: "Asset Generation UI - User Story 4"
 phase: "Phase 1 - Core Features"
-lane: "doing"
+lane: "for_review"
 assignee: ""
 agent: "system"
 shell_pid: ""
@@ -442,3 +442,4 @@ history:
 
 - 2025-11-26T00:00:00Z – system – lane=planned – Prompt created.
 - 2025-11-26T14:03:57Z – system – shell_pid= – lane=doing – Moved to doing
+- 2025-11-26T14:06:33Z – system – shell_pid= – lane=for_review – Moved to for_review
