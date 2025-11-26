@@ -5,6 +5,7 @@ import { WorkflowProvider } from './contexts/WorkflowContext';
 import { ConfigScreen } from './components/config';
 import { SceneGenerationScreen } from './components/scenes';
 import { AssetGenerationScreen } from './components/assets';
+import { VideoAssemblyScreen, VideoOutputScreen } from './components/video';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
               <ConfigScreen />
               <SceneGenerationScreen />
               <AssetGenerationScreen />
-              {/* Video assembly and output screens will be added here */}
+              <VideoAssemblyScreen />
+              <VideoOutputScreen />
             </main>
           </WorkflowProvider>
         </AssetProvider>
