@@ -1,35 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 interface VideoPlayerProps {
   video: Blob;
 }
 
 export function VideoPlayer({ video }: VideoPlayerProps) {
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  // Create blob URL from video blob - memoized to prevent recreation
+  const videoUrl = useMemo(() => URL.createObjectURL(video), [video]);
   const urlRef = useRef<string | null>(null);
 
+  // Store current URL in ref for cleanup
   useEffect(() => {
-    // Create new blob URL
-    const url = URL.createObjectURL(video);
-    urlRef.current = url;
-    setVideoUrl(url);
+    urlRef.current = videoUrl;
+  }, [videoUrl]);
 
-    // Cleanup on unmount or when video changes
+  // Cleanup blob URL on unmount or when video changes
+  useEffect(() => {
     return () => {
       if (urlRef.current) {
         URL.revokeObjectURL(urlRef.current);
-        urlRef.current = null;
       }
     };
   }, [video]);
-
-  if (!videoUrl) {
-    return (
-      <div className="w-full rounded-lg overflow-hidden bg-black shadow-lg flex items-center justify-center h-64">
-        <p className="text-white">Loading video...</p>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full rounded-lg overflow-hidden bg-black shadow-lg">
@@ -39,6 +31,7 @@ export function VideoPlayer({ video }: VideoPlayerProps) {
         className="w-full max-h-[70vh]"
         autoPlay={false}
         playsInline
+        aria-label="Generated video preview"
       >
         Your browser does not support the video tag.
       </video>
