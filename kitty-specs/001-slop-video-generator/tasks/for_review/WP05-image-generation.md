@@ -9,7 +9,7 @@ subtasks:
   - "T035"
 title: "Image Generation Service"
 phase: "Phase 1 - Core Features"
-lane: "doing"
+lane: "for_review"
 assignee: ""
 agent: "claude"
 shell_pid: "42143"
@@ -432,3 +432,4 @@ history:
 
 - 2025-11-26T00:00:00Z – system – lane=planned – Prompt created.
 - 2025-11-26T13:58:48Z – claude – shell_pid=42143 – lane=doing – Started implementation of Image Generation Service
+- 2025-11-26T14:02:20Z – claude – shell_pid=42143 – lane=for_review – Moved to for_review
