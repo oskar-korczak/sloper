@@ -9,10 +9,10 @@ subtasks:
   - "T074"
 title: "CI/CD Deployment Workflows"
 phase: "Phase 2 - Deployment"
-lane: "planned"
+lane: "doing"
 assignee: ""
-agent: ""
-shell_pid: ""
+agent: "claude"
+shell_pid: "96350"
 review_status: ""
 reviewed_by: ""
 history:
@@ -356,3 +356,4 @@ history:
 ## Activity Log
 
 - 2025-11-26T00:00:00Z – system – lane=planned – Prompt created via /spec-kitty.analyze remediation.
+- 2025-11-26T21:56:01Z – claude – shell_pid=96350 – lane=doing – Started implementation of CI/CD deployment workflows
