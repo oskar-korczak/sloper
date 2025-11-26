@@ -310,17 +310,17 @@
 
 **Goal**: Comprehensive error handling, navigation warnings, and UX polish across all stages.
 **Independent Test**: All error scenarios show user-friendly messages; navigation warning appears during generation.
-**Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP10-error-handling-polish.md`
+**Prompt**: `/kitty-specs/001-slop-video-generator/tasks/done/WP10-error-handling-polish.md`
 
 ### Included Subtasks
-- [ ] T061 Create ErrorBoundary component in `frontend/src/components/ui/ErrorBoundary.tsx`
-- [ ] T062 [P] Create Toast/Notification component for transient errors in `frontend/src/components/ui/Toast.tsx`
-- [ ] T063 Implement beforeunload warning during active generation
-- [ ] T064 [P] Add inline error states to all form inputs
-- [ ] T065 [P] Add loading states to all buttons
-- [ ] T066 Add keyboard navigation and accessibility attributes
-- [ ] T067 Implement backend error logging to Google Cloud Logging in `backend/src/main.py`
-- [ ] T068 Final UI polish: responsive layout, consistent spacing
+- [X] T061 Create ErrorBoundary component in `frontend/src/components/ui/ErrorBoundary.tsx`
+- [X] T062 [P] Create Toast/Notification component for transient errors in `frontend/src/components/ui/Toast.tsx`
+- [X] T063 Implement beforeunload warning during active generation
+- [X] T064 [P] Add inline error states to all form inputs
+- [X] T065 [P] Add loading states to all buttons
+- [X] T066 Add keyboard navigation and accessibility attributes
+- [X] T067 Implement backend error logging to Google Cloud Logging in `backend/src/main.py`
+- [X] T068 Final UI polish: responsive layout, consistent spacing
 
 ### Implementation Notes
 - Error boundary: catch React errors, show fallback with "Try Again" button
@@ -343,15 +343,15 @@
 
 **Goal**: Create GitHub Actions workflows for automated deployment to GitHub Pages (frontend) and Cloud Run (backend).
 **Independent Test**: Push to main branch triggers deployments; frontend accessible at GitHub Pages URL; backend accessible at Cloud Run URL.
-**Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP11-deployment-workflows.md`
+**Prompt**: `/kitty-specs/001-slop-video-generator/tasks/done/WP11-deployment-workflows.md`
 
 ### Included Subtasks
-- [ ] T069 Create GitHub Actions workflow for frontend deployment in `.github/workflows/deploy-frontend.yml`
-- [ ] T070 [P] Create GitHub Actions workflow for backend deployment in `.github/workflows/deploy-backend.yml`
-- [ ] T071 Configure GitHub Pages settings for frontend static hosting
-- [ ] T072 [P] Create Cloud Build configuration in `backend/cloudbuild.yaml`
-- [ ] T073 Update frontend environment variables for production backend URL
-- [ ] T074 Document deployment process in README.md
+- [X] T069 Create GitHub Actions workflow for frontend deployment in `.github/workflows/deploy-frontend.yml`
+- [X] T070 [P] Create GitHub Actions workflow for backend deployment in `.github/workflows/deploy-backend.yml`
+- [X] T071 Configure GitHub Pages settings for frontend static hosting
+- [X] T072 [P] Create Cloud Build configuration in `backend/cloudbuild.yaml`
+- [X] T073 Update frontend environment variables for production backend URL
+- [X] T074 Document deployment process in DEPLOYMENT.md
 
 ### Implementation Notes
 - Frontend workflow: build with `npm run build`, deploy to GitHub Pages

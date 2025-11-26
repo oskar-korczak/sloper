@@ -9,7 +9,7 @@ subtasks:
   - "T074"
 title: "CI/CD Deployment Workflows"
 phase: "Phase 2 - Deployment"
-lane: "doing"
+lane: "for_review"
 assignee: ""
 agent: "claude"
 shell_pid: "96350"
