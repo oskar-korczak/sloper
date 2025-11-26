@@ -20,13 +20,13 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP01-project-setup.md`
 
 ### Included Subtasks
-- [ ] T001 Initialize frontend with Vite + React + TypeScript in `frontend/`
-- [ ] T002 [P] Configure Tailwind CSS in `frontend/tailwind.config.js`
-- [ ] T003 [P] Configure ESLint and TypeScript strict mode in `frontend/`
-- [ ] T004 [P] Initialize Python backend with FastAPI in `backend/`
-- [ ] T005 [P] Create backend Dockerfile and requirements.txt
-- [ ] T006 Create TypeScript type definitions in `frontend/src/types/index.ts`
-- [ ] T007 [P] Create environment configuration files (.env.local, .env templates)
+- [x] T001 Initialize frontend with Vite + React + TypeScript in `frontend/`
+- [x] T002 [P] Configure Tailwind CSS in `frontend/tailwind.config.js`
+- [x] T003 [P] Configure ESLint and TypeScript strict mode in `frontend/`
+- [x] T004 [P] Initialize Python backend with FastAPI in `backend/`
+- [x] T005 [P] Create backend Dockerfile and requirements.txt
+- [x] T006 Create TypeScript type definitions in `frontend/src/types/index.ts`
+- [x] T007 [P] Create environment configuration files (.env.local, .env templates)
 
 ### Implementation Notes
 - Frontend: `npm create vite@latest frontend -- --template react-ts`
@@ -51,11 +51,11 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP02-state-management.md`
 
 ### Included Subtasks
-- [ ] T008 Implement ConfigContext with API keys and settings state in `frontend/src/contexts/ConfigContext.tsx`
-- [ ] T009 [P] Implement SceneContext with scenes array and streaming state in `frontend/src/contexts/SceneContext.tsx`
-- [ ] T010 [P] Implement AssetContext with assets Map and timings in `frontend/src/contexts/AssetContext.tsx`
-- [ ] T011 [P] Implement WorkflowContext with stage and progress state in `frontend/src/contexts/WorkflowContext.tsx`
-- [ ] T012 Create context provider wrapper component in `frontend/src/App.tsx`
+- [x] T008 Implement ConfigContext with API keys and settings state in `frontend/src/contexts/ConfigContext.tsx`
+- [x] T009 [P] Implement SceneContext with scenes array and streaming state in `frontend/src/contexts/SceneContext.tsx`
+- [x] T010 [P] Implement AssetContext with assets Map and timings in `frontend/src/contexts/AssetContext.tsx`
+- [x] T011 [P] Implement WorkflowContext with stage and progress state in `frontend/src/contexts/WorkflowContext.tsx`
+- [x] T012 Create context provider wrapper component in `frontend/src/App.tsx`
 
 ### Implementation Notes
 - Follow data-model.md state shapes exactly (ConfigState, SceneState, AssetState, WorkflowState)
@@ -80,13 +80,13 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP03-configuration-ui.md`
 
 ### Included Subtasks
-- [ ] T013 Create ConfigScreen component shell in `frontend/src/components/config/ConfigScreen.tsx`
-- [ ] T014 [P] Build ApiKeyInputs component with validation in `frontend/src/components/config/ApiKeyInputs.tsx`
-- [ ] T015 [P] Build LlmProviderSelect component with model dropdown in `frontend/src/components/config/LlmProviderSelect.tsx`
-- [ ] T016 [P] Build VideoSettings component (resolution, fps, scenes, duration) in `frontend/src/components/config/VideoSettings.tsx`
-- [ ] T017 [P] Build TtsSettings component (voice, speed, model) in `frontend/src/components/config/TtsSettings.tsx`
-- [ ] T018 Implement API key validation service in `frontend/src/services/validation.ts`
-- [ ] T019 Add "Start Generation" button with stage transition
+- [x] T013 Create ConfigScreen component shell in `frontend/src/components/config/ConfigScreen.tsx`
+- [x] T014 [P] Build ApiKeyInputs component with validation in `frontend/src/components/config/ApiKeyInputs.tsx`
+- [x] T015 [P] Build LlmProviderSelect component with model dropdown in `frontend/src/components/config/LlmProviderSelect.tsx`
+- [x] T016 [P] Build VideoSettings component (resolution, fps, scenes, duration) in `frontend/src/components/config/VideoSettings.tsx`
+- [x] T017 [P] Build TtsSettings component (voice, speed, model) in `frontend/src/components/config/TtsSettings.tsx`
+- [x] T018 Implement API key validation service in `frontend/src/services/validation.ts`
+- [x] T019 Add "Start Generation" button with stage transition
 
 ### Implementation Notes
 - API key inputs: password type with show/hide toggle
@@ -112,16 +112,16 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP04-scene-generation.md`
 
 ### Included Subtasks
-- [ ] T020 Implement OpenAI streaming client in `frontend/src/services/llm.ts`
-- [ ] T021 [P] Implement DeepSeek streaming client (OpenAI-compatible) in `frontend/src/services/llm.ts`
-- [ ] T022 Create useStreaming hook for ReadableStream parsing in `frontend/src/hooks/useStreaming.ts`
-- [ ] T023 Implement scene JSON parser with streaming buffer in `frontend/src/services/llm.ts`
-- [ ] T024 Build SceneGenerationScreen component in `frontend/src/components/scenes/SceneGenerationScreen.tsx`
-- [ ] T025 [P] Build PromptInput component in `frontend/src/components/scenes/PromptInput.tsx`
-- [ ] T026 [P] Build SceneCard component (collapsible, editable) in `frontend/src/components/scenes/SceneCard.tsx`
-- [ ] T027 Build SceneList with add/remove scene functionality in `frontend/src/components/scenes/SceneList.tsx`
-- [ ] T028 Display token usage and estimated cost after generation
-- [ ] T029 Add "Generate Assets" button with stage transition
+- [x] T020 Implement OpenAI streaming client in `frontend/src/services/llm.ts`
+- [x] T021 [P] Implement DeepSeek streaming client (OpenAI-compatible) in `frontend/src/services/llm.ts`
+- [x] T022 Create useStreaming hook for ReadableStream parsing in `frontend/src/hooks/useStreaming.ts`
+- [x] T023 Implement scene JSON parser with streaming buffer in `frontend/src/services/llm.ts`
+- [x] T024 Build SceneGenerationScreen component in `frontend/src/components/scenes/SceneGenerationScreen.tsx`
+- [x] T025 [P] Build PromptInput component in `frontend/src/components/scenes/PromptInput.tsx`
+- [x] T026 [P] Build SceneCard component (collapsible, editable) in `frontend/src/components/scenes/SceneCard.tsx`
+- [x] T027 Build SceneList with add/remove scene functionality in `frontend/src/components/scenes/SceneList.tsx`
+- [x] T028 Display token usage and estimated cost after generation
+- [x] T029 Add "Generate Assets" button with stage transition
 
 ### Implementation Notes
 - LLM system prompt should request JSON array of {script, image_description} objects
@@ -150,12 +150,12 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP05-image-generation.md`
 
 ### Included Subtasks
-- [ ] T030 Implement OpenAI image generation client in `frontend/src/services/images.ts`
-- [ ] T031 [P] Implement brightness detection algorithm in `frontend/src/services/images.ts`
-- [ ] T032 [P] Implement brightness correction using Canvas API in `frontend/src/services/images.ts`
-- [ ] T033 Implement transparency flattening (to white background) in `frontend/src/services/images.ts`
-- [ ] T034 Build concurrency limiter (max 12) in `frontend/src/services/images.ts`
-- [ ] T035 Create image generation queue manager in `frontend/src/hooks/useAssetGeneration.ts`
+- [x] T030 Implement OpenAI image generation client in `frontend/src/services/images.ts`
+- [x] T031 [P] Implement brightness detection algorithm in `frontend/src/services/images.ts`
+- [x] T032 [P] Implement brightness correction using Canvas API in `frontend/src/services/images.ts`
+- [x] T033 Implement transparency flattening (to white background) in `frontend/src/services/images.ts`
+- [x] T034 Build concurrency limiter (max 12) in `frontend/src/services/images.ts`
+- [x] T035 Create image generation queue manager in `frontend/src/hooks/useAssetGeneration.ts`
 
 ### Implementation Notes
 - Request `b64_json` response format to avoid CORS issues with URLs
@@ -182,11 +182,11 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP06-tts-generation.md`
 
 ### Included Subtasks
-- [ ] T036 Implement ElevenLabs TTS client in `frontend/src/services/tts.ts`
-- [ ] T037 Implement previous_text/next_text context passing in `frontend/src/services/tts.ts`
-- [ ] T038 [P] Parse timing/alignment data from TTS response in `frontend/src/services/tts.ts`
-- [ ] T039 Build TTS concurrency limiter (max 4, configurable) in `frontend/src/services/tts.ts`
-- [ ] T040 Integrate TTS generation into useAssetGeneration hook in `frontend/src/hooks/useAssetGeneration.ts`
+- [x] T036 Implement ElevenLabs TTS client in `frontend/src/services/tts.ts`
+- [x] T037 Implement previous_text/next_text context passing in `frontend/src/services/tts.ts`
+- [x] T038 [P] Parse timing/alignment data from TTS response in `frontend/src/services/tts.ts`
+- [x] T039 Build TTS concurrency limiter (max 4, configurable) in `frontend/src/services/tts.ts`
+- [x] T040 Integrate TTS generation into useAssetGeneration hook in `frontend/src/hooks/useAssetGeneration.ts`
 
 ### Implementation Notes
 - Use `with_timestamps: true` for word-level timing data
@@ -213,12 +213,12 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP07-asset-generation-ui.md`
 
 ### Included Subtasks
-- [ ] T041 Build AssetGenerationScreen component in `frontend/src/components/assets/AssetGenerationScreen.tsx`
-- [ ] T042 [P] Build AssetProgressCard component (pending/generating/complete/failed) in `frontend/src/components/assets/AssetProgressCard.tsx`
-- [ ] T043 [P] Build RetryButton component for failed assets in `frontend/src/components/assets/RetryButton.tsx`
-- [ ] T044 Display overall progress bar/indicator in `frontend/src/components/assets/AssetGenerationScreen.tsx`
-- [ ] T045 Implement asset generation orchestration (start all, track status) in `frontend/src/hooks/useAssetGeneration.ts`
-- [ ] T046 Add "Assemble Video" button enabled when all assets complete
+- [x] T041 Build AssetGenerationScreen component in `frontend/src/components/assets/AssetGenerationScreen.tsx`
+- [x] T042 [P] Build AssetProgressCard component (pending/generating/complete/failed) in `frontend/src/components/assets/AssetProgressCard.tsx`
+- [x] T043 [P] Build RetryButton component for failed assets in `frontend/src/components/assets/RetryButton.tsx`
+- [x] T044 Display overall progress bar/indicator in `frontend/src/components/assets/AssetGenerationScreen.tsx`
+- [x] T045 Implement asset generation orchestration (start all, track status) in `frontend/src/hooks/useAssetGeneration.ts`
+- [x] T046 Add "Assemble Video" button enabled when all assets complete
 
 ### Implementation Notes
 - Card shows scene number, image thumbnail (when ready), audio waveform/icon, status badge
@@ -244,14 +244,14 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP08-video-assembly-backend.md`
 
 ### Included Subtasks
-- [ ] T047 Implement /health endpoint in `backend/src/routes/health.py`
-- [ ] T048 Create Pydantic models for AssemblyMetadata in `backend/src/models/requests.py`
-- [ ] T049 Implement /assemble-video endpoint (multipart handling) in `backend/src/routes/assemble.py`
-- [ ] T050 [P] Implement FFmpeg image-to-video conversion in `backend/src/services/ffmpeg.py`
-- [ ] T051 [P] Implement FFmpeg audio concatenation in `backend/src/services/ffmpeg.py`
-- [ ] T052 Implement FFmpeg video+audio merge in `backend/src/services/ffmpeg.py`
-- [ ] T053 Add error handling and logging in `backend/src/routes/assemble.py`
-- [ ] T054 Configure CORS middleware in `backend/src/main.py`
+- [x] T047 Implement /health endpoint in `backend/src/routes/health.py`
+- [x] T048 Create Pydantic models for AssemblyMetadata in `backend/src/models/requests.py`
+- [x] T049 Implement /assemble-video endpoint (multipart handling) in `backend/src/routes/assemble.py`
+- [x] T050 [P] Implement FFmpeg image-to-video conversion in `backend/src/services/ffmpeg.py`
+- [x] T051 [P] Implement FFmpeg audio concatenation in `backend/src/services/ffmpeg.py`
+- [x] T052 Implement FFmpeg video+audio merge in `backend/src/services/ffmpeg.py`
+- [x] T053 Add error handling and logging in `backend/src/routes/assemble.py`
+- [x] T054 Configure CORS middleware in `backend/src/main.py`
 
 ### Implementation Notes
 - Follow contracts/video-assembly.yaml OpenAPI spec exactly
@@ -281,12 +281,12 @@
 **Prompt**: `/kitty-specs/001-slop-video-generator/tasks/planned/WP09-video-output.md`
 
 ### Included Subtasks
-- [ ] T055 Implement video assembly client in `frontend/src/services/video.ts`
-- [ ] T056 Build VideoAssemblyScreen component in `frontend/src/components/video/VideoAssemblyScreen.tsx`
-- [ ] T057 [P] Build VideoPlayer component with standard controls in `frontend/src/components/video/VideoPlayer.tsx`
-- [ ] T058 [P] Build DownloadButton component with filename generation in `frontend/src/components/video/DownloadButton.tsx`
-- [ ] T059 Display assembly progress indicator during processing
-- [ ] T060 Store final video in WorkflowContext and update stage to 'output'
+- [x] T055 Implement video assembly client in `frontend/src/services/video.ts`
+- [x] T056 Build VideoAssemblyScreen component in `frontend/src/components/video/VideoAssemblyScreen.tsx`
+- [x] T057 [P] Build VideoPlayer component with standard controls in `frontend/src/components/video/VideoPlayer.tsx`
+- [x] T058 [P] Build DownloadButton component with filename generation in `frontend/src/components/video/DownloadButton.tsx`
+- [x] T059 Display assembly progress indicator during processing
+- [x] T060 Store final video in WorkflowContext and update stage to 'output'
 
 ### Implementation Notes
 - Client: multipart/form-data POST with images as files, audio as files, metadata JSON

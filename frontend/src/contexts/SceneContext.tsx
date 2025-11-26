@@ -14,7 +14,7 @@ interface SceneContextType {
   addScene: (scene: Omit<Scene, 'id'>) => void;
   updateScene: (id: string, updates: Partial<Omit<Scene, 'id'>>) => void;
   removeScene: (id: string) => void;
-  setScenes: (scenes: Scene[]) => void;
+  setScenes: (scenes: Scene[] | ((prev: Scene[]) => Scene[])) => void;
   setIsStreaming: (streaming: boolean) => void;
   appendToStreamBuffer: (text: string) => void;
   clearStreamBuffer: () => void;
@@ -68,10 +68,12 @@ export function SceneProvider({ children }: SceneProviderProps) {
     });
   };
 
-  const setScenes = (scenes: Scene[]) => {
+  const setScenes = (scenesOrUpdater: Scene[] | ((prev: Scene[]) => Scene[])) => {
     setState((prev) => ({
       ...prev,
-      scenes,
+      scenes: typeof scenesOrUpdater === 'function'
+        ? scenesOrUpdater(prev.scenes)
+        : scenesOrUpdater,
     }));
   };
 

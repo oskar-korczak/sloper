@@ -8,12 +8,12 @@ subtasks:
   - "T040"
 title: "TTS Service with Context"
 phase: "Phase 1 - Core Features"
-lane: "for_review"
+lane: "done"
 assignee: ""
-agent: "system"
-shell_pid: ""
-review_status: ""
-reviewed_by: ""
+agent: "claude-reviewer"
+shell_pid: "$$"
+review_status: "approved without changes"
+reviewed_by: "claude-reviewer"
 history:
   - timestamp: "2025-11-26T00:00:00Z"
     lane: "planned"
@@ -341,3 +341,4 @@ history:
 - 2025-11-26T00:00:00Z – system – lane=planned – Prompt created.
 - 2025-11-26T14:02:38Z – system – shell_pid= – lane=doing – Moved to doing
 - 2025-11-26T14:03:42Z – system – shell_pid= – lane=for_review – Moved to for_review
+- 2025-11-26T14:52:53Z – claude-reviewer – shell_pid=$$ – lane=done – Code review approved: TTS with context, word-level timing, configurable concurrency
