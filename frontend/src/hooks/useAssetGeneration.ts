@@ -52,7 +52,7 @@ export function useAssetGeneration() {
 
         try {
           // Generate image from OpenAI
-          const result = await generateImage(config.apiKeys.openai, {
+          const result = await generateImage(config.apiKeys.openai ?? '', {
             prompt: scene.imageDescription,
             model: config.image.model,
             quality: config.image.quality,
@@ -175,7 +175,7 @@ export function useAssetGeneration() {
       try {
         if (asset.type === 'image') {
           const size = `${config.video.resolution.width}x${config.video.resolution.height}`;
-          const result = await generateImage(config.apiKeys.openai, {
+          const result = await generateImage(config.apiKeys.openai ?? '', {
             prompt: scene.imageDescription,
             model: config.image.model,
             quality: config.image.quality,

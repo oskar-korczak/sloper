@@ -38,8 +38,8 @@ Make each scene's script flow naturally into the next. Image descriptions should
     parsedCountRef.current = 0;
 
     const apiKey = config.llm.provider === 'openai'
-      ? config.apiKeys.openai
-      : config.apiKeys.deepseek || '';
+      ? config.apiKeys.openai ?? ''
+      : config.apiKeys.deepseek ?? '';
 
     try {
       const stream = streamLLM(
